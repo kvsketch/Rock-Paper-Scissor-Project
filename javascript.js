@@ -9,3 +9,8 @@
 
 //create function game() call playRound inside of this one use loop to 
 //play through 5 rounds of the game for (let i = 0; i < 5; i++) {
+const rockPaperScissors = ['Rock','Paper','Scissors'];
+
+function getComputerChoice() {
+    return rockPaperScissors[Math.floor(Math.random()*rockPaperScissors.length)];
+}
