@@ -9,8 +9,18 @@
 
 //create function game() call playRound inside of this one use loop to 
 //play through 5 rounds of the game for (let i = 0; i < 5; i++) {
+
+
 const rockPaperScissors = ['Rock','Paper','Scissors'];
 
 function getComputerChoice() {
     return rockPaperScissors[Math.floor(Math.random()*rockPaperScissors.length)];
 }
+
+//take html input and print answer and return value of the player input
+const playerSelection = () => {
+    let inputValue = document.getElementById("playerAnswer").value;
+    document.getElementById("valueInput").innerHTML = inputValue;
+    return inputValue.toLowerCase();
+}
+
