@@ -46,9 +46,24 @@ const game = () => {
   }
   if (playerScore > computerScore) {
     console.log("You win");
+    playAgain();
   } else if (computerScore > playerScore) {
     console.log("Computer man wins");
+    playAgain();
   } else if (playerScore === computerScore) {
     console.log("Tie");
+    playAgain();
   }
+}
+
+const playAgain = () => {
+    let answer = prompt('Play again? Yes? No?');
+    if (answer.toLowerCase() == 'yes') {
+        i=1;
+        playerScore = 0;
+        computerScore =0;
+        game();
+    } else {
+        console.log('Bye! Play again soon!')
+    }
 }
