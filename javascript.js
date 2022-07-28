@@ -1,14 +1,3 @@
-//Create Computer Logic using getComputerChoice Function
-//getComputerChoice will return Rock, Paper, or Scissors randomly
-
-//Create a function playRound that plays a round of the game, using two parameters
-//playerSelection (use and input) and computerSelection (use function)
-//make player input case insensetive, can type the input anyway they'd like
-//use if statement to determine the winner
-//return string that delcares "You Lose!" + "Paper beats Rock", etc...
-
-//create function game() call playRound inside of this one use loop to
-//play through 5 rounds of the game for (let i = 0; i < 5; i++) {
 
 const rockPaperScissors = ["rock", "paper", "scissors"];
 
@@ -18,20 +7,11 @@ function getComputerChoice() {
   ];
 }
 
-//take html input and print answer and return value of the player input in lowercase
-// const playerSelection = () => {
-//   let inputValue = document.getElementById("playerAnswer").value;
-//   document.getElementById("valueInput").innerHTML = inputValue;
-//   return inputValue.toLowerCase();
-// };
-
 let playerSelection = () => {
   return prompt("Rock,Paper Scissors? Choose!");
 };
 
-//playRound function sorts win scenarios, if they are not met, it will delcare a tie or L
-let computer = getComputerChoice();
-let player = playerSelection();
+//adds to the player and computers score simplifying the game() loop function
 
 function playRound(player, computer) {
   player = playerSelection();
@@ -51,8 +31,6 @@ function playRound(player, computer) {
   }
 }
 
-//add value every round
-//keep track of score and report winner at end
 let playerScore = 0;
 let computerScore = 0;
 
@@ -60,7 +38,8 @@ const game = () => {
   for (i = 1; i < 6; i++) {
     playRound();
     console.log("round", i);
-    console.log("playerscore", playerScore, "computerscore", computerScore);
+    console.log("playerscore", playerScore,
+     "computerscore", computerScore);
     if (playerScore === 3 || computerScore === 3) {
       break;
     }
@@ -73,31 +52,3 @@ const game = () => {
     console.log("Tie");
   }
 }
-
-//first attempt
-// const game = () => {
-//     for (round = 0; round < 5; round++) {
-//         console.log(round);
-//         if (playerScore < 3 && computerScore < 3) {
-//       if (playRound() === "You win!") {
-//         console.log("You win this round!");
-//          playerScore++;
-//       } else if (playRound() === "You lose!") {
-//         console.log("The cool guy computer wins this round!");
-//          computerScore++;
-//       } else {
-//         console.log("Nobody wins this round!");
-
-//       }
-
-//     }
-//     }
-//   if (playerScore === 3) {
-//     console.log("You won 3 rounds, you win!");
-//   } else if (computerScore === 3) {
-//     console.log("The computer has won 3 rounds, it triumped over you");
-//   } else {
-//     console.log("No winner has been determined");
-//   }
-
-// };
