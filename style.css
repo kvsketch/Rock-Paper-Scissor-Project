@@ -74,12 +74,28 @@ ul {
 
 button {
     outline: none;
+    border-radius: 5px;
+    animation-duration: 1.1s;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+
 }
+button:hover {
+    filter: brightness(115%);
+    animation-name: bounce;
+    animation-timing-function: ease;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+    
 
 .selection-box {
     display: flex;
     justify-content: space-around;
-    padding: 15px;
+    padding: 10px;
     width: 350px;
 }
 
