@@ -9,8 +9,12 @@ const winnerText = document.createElement('win');
 const showPlayerScore = document.querySelector("#player_score");
 const showComputerScore = document.querySelector("#computer_score");
 const showRound = document.querySelector('.rounds');
-const battleBox = document.querySelector('.battle-box-player');
-
+const battleBox = document.querySelector('.battle-box');
+const battleBoxPlayer = document.querySelector('.battle-box-player')
+const computerAvatar = document.createElement('computer-avatar');
+const playerAvatar = document.createElement('player-avatar');
+const pit = document.querySelector('.pit');
+const versus = document.querySelector('.vs');
 const rockPaperScissors = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
@@ -27,6 +31,7 @@ startButton.addEventListener(
   "click",
   (start = () => {
     startGame();
+    startButton.remove();
   })
 );
 
@@ -34,13 +39,19 @@ function startGame() {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       playerSelection(`${button.id}`);
+      battleBoxPlayer.setAttribute('id',`${button.id}`);
       gameRound();
-      startButton.remove();
     });
   });
 }
 function playRound(player,computer) {
   computer = getComputerChoice();
+  battleBox.appendChild(computerAvatar);
+  battleBoxPlayer.appendChild(playerAvatar);
+  battleBox.setAttribute('id',`${computer}`);
+  
+
+ 
   if (
     (player === "rock" && computer === "scissors") ||
     (player === "paper" && computer === "rock") ||
@@ -48,14 +59,14 @@ function playRound(player,computer) {
   ) {
     playerScore++;
     round++;
-    winnerText.textContent = 'You win this round!'
+    winnerText.textContent = `You win round ${round-1}`
     updateScore();
   } else if (player == computer) {
     winnerText.textContent = 'You tie this round!'
   } else {
     computerScore++;
     round++;
-    winnerText.textContent = 'You lose this round!'
+    winnerText.textContent = `You lose round ${round-1}`
     updateScore();
 
   }
@@ -105,6 +116,7 @@ const playAgain = () => {
   playerScore = 0;
   computerScore = 0;
   againBtn.remove();
+  winnerText.remove();
   updateScore();
   showRound.textContent =  `Round ${round}`;
   });
